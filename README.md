@@ -1,7 +1,7 @@
 # Astronomy Labs
-These are a collection of lab worksheets that I put together / modified as a teaching assistant. Some of the original lab version can be found in the ["TA_Lab_Manuals.pdf"](./TA_Lab_Manuals.pdf). 
+These are a collection of lab worksheets that I put together / modified as a teaching assistant. Some of the original worksheets can be found in [TA_Lab_Manuals.pdf](./TA_Lab_Manuals.pdf).
 
-See ["EPLS_7385.pdf"](./EPLS_7385.pdf) to read my Pedagogical Content Knowledge paper that I wrote as part of the course Teaching and Learning in Higher Education (EPLS:7385).
+See [EPLS_7385.pdf](./EPLS_7385.pdf) to read my Pedagogical Content Knowledge paper that I wrote as part of the course Teaching and Learning in Higher Education (EPLS:7385).
 
 ## Websites
 Below are some links to content that I developed with an explanation of each.
