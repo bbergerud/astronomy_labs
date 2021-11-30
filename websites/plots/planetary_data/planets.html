@@ -1,0 +1,106 @@
+<html>
+<head>
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <style>
+    div {
+      width: 90vw;
+      margin: auto auto;
+    }
+  </style>
+</head>
+<body>
+  <div>
+	   <canvas id='planets'></canvas>
+  </div>
+</body>
+</html>
+
+<script>
+let pdata = [];
+let pkeys;
+let display = [1,5,7]
+d3.csv("Planetary_Data.csv").then(function(data) {
+  pkeys = data['columns']
+
+  let vals = {}
+  pkeys.map((d) => vals[d] = [])
+
+  colors = ['#a6cee3', '#b2df8a',
+            '#fb9a99', '#ffffb3',
+            '#fdbf6f', '#fccde5',
+            '#cab2d6', '#d9d9d9',
+            '#343A40', '#bc80bd',
+            '#e31a1c',
+            ]
+  colors = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6']
+
+    colors = [
+      '#fb8072', '#a6cee3',
+      '#fdb462', '#fff3b2',
+      '#99e6ff','#cab2d6',
+      '#c6538c', '#bed6b2', //'#b2df8a',
+      '#708090','#DCDCDC'
+    ]
+
+  data.map((d) => {
+    pkeys.map((k,i) => {
+      if (i == 0) {
+        vals[k].push(d[k])
+      } else {
+        vals[k].push(+d[k])
+      }
+    })
+  })
+
+  pkeys.slice(1).map((key,i) => {
+    pdata.push( {
+      data: vals[key],
+      label: key,
+      backgroundColor: colors[i],
+      hidden: display.includes(i) ? false : true
+    })
+  })
+
+  var ctx = document.getElementById('planets').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      datasets: pdata,
+      labels: vals[pkeys[0]]
+    },
+    options: {
+      responsive: true,
+			title: {
+				display: false,
+				text: 'Planetary Data'
+			},
+      legend: {
+        labels: {
+          fontSize: 15
+        }
+      },
+      tooltips: {
+        mode: 'index',
+        intersect: true,
+      },
+			scales: {
+				xAxes: [{
+					display: true,
+          ticks: {
+              fontSize: 15,
+          }
+				}],
+				yAxes: [{
+					display: true,
+					//type: 'linear',
+          ticks: {
+              fontSize: 15
+          }
+  			}]
+			}
+		}
+  })
+})
+
+</script>

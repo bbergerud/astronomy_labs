@@ -1,0 +1,56 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <style>
+  .line {
+       fill: none;
+       stroke: steelblue;
+       stroke-width: 1.5px;
+   }
+  .zoom {
+      cursor: move;
+      fill: none;
+      pointer-events: all;
+  }
+  </style>
+</head>
+<body>
+  <svg id='quasarSpectrum'></svg>
+  <div>
+    <p>Quasar
+    <select id='id' onchange="plot_data()">
+      <option>J0927</option>
+      <option>J1236</option>
+      <option>J1400</option>
+      <option>J1452</option>
+      <option>J1458</option>
+      <option>J1509</option>
+      <option>J2105</option>
+    </select></p>
+    <p>Redshift
+      <input id="redshift" type="number" min="0" max="1" step="0.01" value="0" onChange="emissionLines()">
+    </p>
+  </div>
+</body>
+</html>
+<script src='quasar.js'></script>
+<script>
+function plot_spectrum(name) {
+  url = 'data/' + name + '.csv';
+  d3.csv(url).then(function(data){
+    data.forEach(function(d){
+      d.wavelength = d.wavelength / 10.;
+    })
+    datum = data;
+    quasarSpectrumBrush(data);
+  })
+}
+
+function plot_data() {
+  var name = d3.select('#id').node().value;
+  plot_spectrum(name)
+}
+
+plot_data();
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+		<script src="planets.js"></script>
+		<title>Planetary Trivia</title>
+		<style>
+			body {
+				background: url("https://img00.deviantart.net/e046/i/2013/290/7/b/planets_mosaic__plus_pluto__by_gyromorgian-d5xyxgy.jpg") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				color: azure;
+				text-align: center;
+				font-family: 'Ravi Prakash', cursive; serif;
+			}
+
+			h2 {
+				font-size: 3em;
+			}
+
+			section {
+				margin: 3% 10% 3% 10%;
+				font-size: 20px;
+				text-shadow: 2px 2px 3px black;
+			}
+
+			input {
+				width: 125px;
+			}
+
+			.correct {
+				color: gold;
+				text-decoration: underline;
+			}
+
+			a {
+				color: red;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h2>Planetary Trivia</h2>
+			<section>
+				<p>
+					<input type="button" value="New Question" onclick=newQuestion()>
+					<input type="button" value="Check Answer" onclick=showAnswer()>
+					<input type="button" value="Go Back" onclick=goBack()>
+				</p>
+				<p><output id="question"></output></p>
+				<p>----------------------------</p>
+				<p><output id="choices"></output></p>
+			</section>
+		</main>
+	</body>
+</html>

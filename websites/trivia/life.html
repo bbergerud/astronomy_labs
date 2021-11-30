@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+		<script src="life.js"></script>
+		<title>The Sun, Life, and Exoplanet Trivia</title>
+		<style>
+			body {
+				background: url("https://www.nasa.gov/sites/default/files/thumbnails/image/astrobio_award_0.jpg") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				color: azure;
+				text-align: center;
+				font-family: 'Ravi Prakash', cursive; serif;
+			}
+
+			h2 {
+				font-size: 3em;
+			}
+
+			section {
+				margin: 3% 10% 3% 10%;
+				font-size: 20px;
+				text-shadow: 2px 2px 3px black;
+			}
+
+			input {
+				width: 125px;
+			}
+
+			.correct {
+				color: gold;
+				text-decoration: underline;
+			}
+
+			a {
+				color: red;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h2>The Sun, Life, and Exoplanet Trivia</h2>
+			<section>
+				<p>
+					<input type="button" value="New Question" onclick=newQuestion()>
+					<input type="button" value="Check Answer" onclick=showAnswer()>
+					<input type="button" value="Go Back" onclick=goBack()>
+				</p>
+				<p><output id="question"></output></p>
+				<p>----------------------------</p>
+				<p><output id="choices"></output></p>
+			</section>
+		</main>
+	</body>
+</html>
